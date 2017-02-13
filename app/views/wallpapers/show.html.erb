@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cat:</strong>
+  <%= @wallpaper.cat %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @wallpaper.color %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @wallpaper.picture_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @wallpaper.title %>
+</p>
+  <%= @wallpaper.user.username%>
+
+<%= link_to 'Edit', edit_wallpaper_path(@wallpaper) %> |
+<%= link_to 'Back', wallpapers_path %>
+
+<div id=show_wrapper>
+	<p id="notice"><%= notice %></p>
+	<p id='show_title'>
+	  <strong><%= @wallpaper.title %></strong>
+	</p>
+
+	<p>
+	  <%=image_tag("https://s3.amazonaws.com/ultrawidewallpapers/#{@wallpaper.picture_id}.jpg",id:'show_wallpaper')%>
+    <% if @wallpaper.image.exists?%>
+      <%= image_tag @wallpaper.image.url%>
+    <%end%>
+	</p>
+<p id='show_cat'>
+	  <strong>Category:</strong>
+	  <%= @wallpaper.cat %>
+</p>
+
+<p id='show_color'>
+ <strong>Color: </strong>
+ <%= @wallpaper.color %>
+</p>
+
+</div>
