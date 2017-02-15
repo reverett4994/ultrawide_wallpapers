@@ -1,49 +1,54 @@
-<p id="notice"><%= notice %></p>
+<h2 id="wallpaper_title"><%= @wallpaper.title %></h2>
 
-<p>
-  <strong>Cat:</strong>
-  <%= @wallpaper.cat %>
-</p>
+<% if @wallpaper.image.exists?%>
+  <%= image_tag @wallpaper.image.url,id:"show_wallpaper"%>
+<%else%>
+  <%=image_tag("https://s3.amazonaws.com/ultrawidewallpapers/#{@wallpaper.picture_id}.jpg",id:'show_wallpaper')%>
+<%end%>
+  <div id="show_info">
+    <strong>Category:</strong>
+    <%= @wallpaper.cat %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong>Color:</strong>
+    <%= @wallpaper.color %>
+  </div>
 
-<p>
-  <strong>Color:</strong>
-  <%= @wallpaper.color %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @wallpaper.picture_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @wallpaper.title %>
-</p>
-  <%= @wallpaper.user.username%>
-
-<%= link_to 'Edit', edit_wallpaper_path(@wallpaper) %> |
-<%= link_to 'Back', wallpapers_path %>
-
-<div id=show_wrapper>
-	<p id="notice"><%= notice %></p>
-	<p id='show_title'>
-	  <strong><%= @wallpaper.title %></strong>
-	</p>
-
-	<p>
-	  <%=image_tag("https://s3.amazonaws.com/ultrawidewallpapers/#{@wallpaper.picture_id}.jpg",id:'show_wallpaper')%>
-    <% if @wallpaper.image.exists?%>
-      <%= image_tag @wallpaper.image.url%>
-    <%end%>
-	</p>
-<p id='show_cat'>
-	  <strong>Category:</strong>
-	  <%= @wallpaper.cat %>
-</p>
-
-<p id='show_color'>
- <strong>Color: </strong>
- <%= @wallpaper.color %>
-</p>
-
+<div id="rating_div">
+  <p id="p_like"><%=if current_user.voted_up_on? @wallpaper then "Like!"else "Like?" end%></p>
+  <%= link_to "javascript:void(0)", class: "like #{'liked' if current_user.voted_up_on? @wallpaper}",id:@wallpaper.id do %>
+     <i class="glyphicon glyphicon-star"></i>
+  <% end %>
+  <br>Likes:
+  <div class="rating">
+    <%= @wallpaper.get_upvotes.size%>
+  </div>
 </div>
+<%= link_to 'Edit', edit_wallpaper_path(@wallpaper) %>
+
+<script>
+$('.like').click(function(e) {
+  console.log("CLICKED");
+  var wallpaper= $(this).attr("id")
+  $(this).toggleClass( "liked" );
+  $.ajax({
+    type: "POST",
+    url: "/wallpaper/vote",
+    dataType:"json",
+    data: {id:wallpaper },
+    success:function(data) {
+      console.log(data);
+      $(".rating").text(data)
+      var text= $("#p_like").text()
+      if(text=="Like?"){
+        $("#p_like").text("Like!")
+      }else{
+        $("#p_like").text("Like?")
+      }
+      return false;
+    },
+    error:function(data) {
+      console.log("error");
+      return false;
+    }
+  });
+});
+</script>

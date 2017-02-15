@@ -2,32 +2,15 @@
 
 <h1>Listing Wallpapers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Cat</th>
-      <th>Color</th>
-      <th>Picture</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @wallpapers.each do |wallpaper| %>
-      <tr>
-        <td><%= wallpaper.cat %></td>
-        <td><%= wallpaper.color %></td>
-        <td><%= wallpaper.picture_id %></td>
-        <td><%= wallpaper.title %></td>
-        <td><%= link_to 'Show', wallpaper %></td>
-        <td><%= link_to 'Edit', edit_wallpaper_path(wallpaper) %></td>
-        <td><%= link_to 'Destroy', wallpaper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @wallpapers.each do |wallpaper| %>
+  <%= render 'gallery',wallpaper: wallpaper %>
+<% end %>
 <br>
-
+<div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @wallpapers %>
+  </div>
+  <%= will_paginate @wallpapers, :container => false %>
+</div>
 <%= link_to 'New Wallpaper', new_wallpaper_path %>

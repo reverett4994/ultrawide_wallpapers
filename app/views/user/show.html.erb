@@ -1,0 +1,8 @@
+<br>Liked:
+<% @user.find_liked_items.each do |wallpaper|%>
+  <br><%=link_to wallpaper.title,wallpaper%>
+<%end%>
+<br>Posted:
+<% @user.wallpapers.each do |wallpaper|%>
+  <br><%=link_to wallpaper.title,wallpaper%>
+<%end%>

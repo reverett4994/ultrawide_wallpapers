@@ -1,0 +1,197 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+    font-family: 'Audiowide', cursive;
+
+    font-family: 'Oswald', sans-serif;
+
+    font-family: 'Exo 2', sans-serif;
+
+    GREY: #222930
+    BLUE: #4EB1BA
+    WHITE: #E9E9E9
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+$blue: #4EB1BA;
+$darkgrey: #181717;
+$grey: #E9E9E9;
+$lime: #C7F465;
+::-moz-selection { /* Code for Firefox */
+    color: $darkgrey;
+    background: $lime;
+}
+
+::selection {
+    color: $darkgrey;
+    background: $lime;
+}
+ a{
+   text-decoration: none !important;
+   :hover{
+     text-decoration: none !important;
+   }
+ }
+
+ /* unvisited link */
+ a:link {
+    color: inherit;
+ }
+ /* visited link */
+ a:visited {
+    color: inherit;
+ }
+ /* mouse over link */
+ a:hover {
+    color: inherit;
+ }
+ /* selected link */
+ a:active {
+    color: inherit;
+ }
+ body{
+   background-color: $darkgrey;
+   color: $grey;
+   width: 100%;
+ }
+ /********************************************* HEADER**************************************************/
+
+.navbar{
+  background-color: $darkgrey;
+  border-bottom: 12px solid $blue;
+  padding: 7px;
+  li a{
+    color: $grey !important;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  li:hover{
+    background-color: $lime;
+    a{
+      color: $darkgrey !important;
+    }
+  }
+  .open{
+    .dropdown-toggle{
+      background-color: $lime !important;
+      color: $darkgrey !important;
+    }
+    a{
+      color: $darkgrey !important;
+    }
+    li :hover{
+      background-color: $blue !important;
+      color:$grey !important;
+    }
+  }
+}
+#header_title{
+  color: $grey !important;
+  font-size: 35px;
+  font-family: 'Audiowide', cursive;
+}
+#header_title:hover{
+    color: $lime !important;
+  }
+.inline{
+  display: inline-block;
+}
+/********************************************* HEADER**************************************************/
+
+
+
+
+/********************************************* SHOW**************************************************/
+
+.like{
+  font-size: 40px;
+  color: $grey !important;
+  border: 1px solid black;
+  border-radius: 10%;
+  padding: 2px;
+  :hover{
+    color:$lime !important;
+  }
+}
+.liked{
+    color: $lime !important;
+    :hover{
+      color:$lime !important;
+    }
+}
+#show_wallpaper{
+  width: 95%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+}
+#wallpaper_title{
+  font-size: 50px;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+#show_info{
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Exo 2', sans-serif;
+  margin-top: 10px;
+}
+#rating_div{
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Exo 2', sans-serif;
+  margin-top: 10px;
+}
+/********************************************* SHOW**************************************************/
+
+
+/********************************************* GALLERY**************************************************/
+
+.gallery_wallpaper{
+  width: 33.35%;
+  margin-left: -.2%;
+
+}
+
+.apple_pagination {
+  background: $blue;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+  .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+  .apple_pagination .disabled {
+    color: #327a81; }
+  .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: $lime;
+    color:$darkgrey;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+  .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+    .apple_pagination a:hover, .apple_pagination a:focus {
+      text-decoration: underline; }
+/********************************************* GALLERY**************************************************/

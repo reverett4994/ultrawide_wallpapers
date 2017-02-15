@@ -1,10 +1,17 @@
 class WallpapersController < ApplicationController
   before_action :set_wallpaper, only: [:show, :edit, :update, :destroy]
-
+  require 'will_paginate/array'
+  WillPaginate.per_page = 12
   # GET /wallpapers
   # GET /wallpapers.json
   def index
-    @wallpapers = Wallpaper.all
+    if params[:color]
+      @wallpapers=Wallpaper.where('color LIKE ?',params[:color]).paginate(:page => params[:page])
+    elsif params[:cat]
+      @wallpapers=Wallpaper.where('cat LIKE ?',params[:cat]).paginate(:page => params[:page])
+    else
+      @wallpapers = Wallpaper.all.paginate(:page => params[:page])
+    end
   end
 
   # GET /wallpapers/1
@@ -60,6 +67,21 @@ class WallpapersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def vote
+    @wallpaper=Wallpaper.find(params[:id])
+    if current_user.voted_up_on? @wallpaper
+      @wallpaper.unliked_by current_user
+    else
+      @wallpaper.liked_by current_user
+    end
+
+
+    respond_to do |format|
+    format.xml  { render :xml => @wallpaper }
+    format.json { render :json => (@wallpaper.get_upvotes.size) }
+  end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

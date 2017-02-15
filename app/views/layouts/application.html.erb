@@ -4,17 +4,64 @@
   <title>Widewallpapers2</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Exo+2|Oswald" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%if user_signed_in?%>
-    <%=link_to "Sign Out",destroy_user_session_path,method: :delete%>
-    <%=link_to "Edit Account", edit_user_registration_path%>
-  <%else%>
-    <%=link_to "Sign In", new_user_session_path%>
-  <%end%>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "UltrawideWallpaper.com",root_path,id:"header_title",class:"navbar-brand"%>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+         <li><%= link_to 'Architecture',  wallpapers_path(:cat=>'Architecture')  %></li>
+         <li><%= link_to 'Artistic',  wallpapers_path(:cat=>'Artistic')  %></li>
+         <li><%= link_to 'Cars',  wallpapers_path(:cat=>'Cars')  %></li>
+         <li><%= link_to 'Games',  wallpapers_path(:cat=>'Games')  %></li>
+         <li><%= link_to 'Nature',  wallpapers_path(:cat=>'Nature')  %></li>
+         <li><%= link_to 'People',  wallpapers_path(:cat=>'People')  %></li>
+         <li><%= link_to 'Space',  wallpapers_path(:cat=>'Space')  %></li>
+        </ul>
+      </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Colors
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Black',  wallpapers_path(:color=>'black')  %></li>
+          <li><%= link_to 'Blue',  wallpapers_path(:color=>'blue')  %></li>
+          <li><%= link_to 'Brown',  wallpapers_path(:color=>'brown')  %></li>
+          <li><%= link_to 'Grey',  wallpapers_path(:color=>'grey')  %></li>
+          <li><%= link_to 'Green',  wallpapers_path(:color=>'green')  %></li>
+          <li><%= link_to 'Orange',  wallpapers_path(:color=>'orange')  %></li>
+          <li><%= link_to 'Purple',  wallpapers_path(:color=>'purple')  %></li>
+          <li><%= link_to 'Red',  wallpapers_path(:color=>'red')  %></li>
+          <li><%= link_to 'White',  wallpapers_path(:color=>'white')  %></li>
+          <li><%= link_to 'Yellow',  wallpapers_path(:color=>'yellow')  %></li>
+        </ul>
+      </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <%if user_signed_in?%>
+        <li><%=link_to "/user/#{current_user.username}" do%>
+          <i class="glyphicon glyphicon-user"></i> <%=truncate(current_user.username, :length => 9) %>
+        <%end%></li>
+          <li><%=link_to destroy_user_session_path,method: :delete do%>
+            <i class="glyphicon glyphicon-log-out"></i> Logout
+          <%end%></li>
+        <%else%>
+          <li><%=link_to new_user_session_path do%>
+            <i class="glyphicon glyphicon-log-in"></i> Login
+          <%end%></li>
+        <%end%>
+      </ul>
+    </div>
+  </nav>
+
+
 <%= yield %>
 
 </body>
