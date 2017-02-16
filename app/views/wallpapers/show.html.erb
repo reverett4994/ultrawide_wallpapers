@@ -1,5 +1,5 @@
-<h2 id="wallpaper_title"><%= @wallpaper.title %></h2>
-
+<h2 id="wallpaper_title"><%= @wallpaper.title %> </h2>
+<h4 id="wallpaper_h4">submitted by <%=if @wallpaper.user !=nil then link_to @wallpaper.user.username,"/user/#{@wallpaper.user.username}"else "saMplEusER" end%></h4>
 <% if @wallpaper.image.exists?%>
   <%= image_tag @wallpaper.image.url,id:"show_wallpaper"%>
 <%else%>
@@ -11,18 +11,20 @@
     <strong>Color:</strong>
     <%= @wallpaper.color %>
   </div>
-
-<div id="rating_div">
-  <p id="p_like"><%=if current_user.voted_up_on? @wallpaper then "Like!"else "Like?" end%></p>
-  <%= link_to "javascript:void(0)", class: "like #{'liked' if current_user.voted_up_on? @wallpaper}",id:@wallpaper.id do %>
-     <i class="glyphicon glyphicon-star"></i>
-  <% end %>
-  <br>Likes:
-  <div class="rating">
-    <%= @wallpaper.get_upvotes.size%>
+<% if user_signed_in?%>
+  <div id="rating_div">
+    <%= link_to "javascript:void(0)", class: "like #{'liked' if current_user.voted_up_on? @wallpaper}",id:@wallpaper.id do %>
+       <i class="glyphicon glyphicon-star"></i>
+    <% end %>
+    <p id="p_like"><%=if current_user.voted_up_on? @wallpaper then "Like!"else "Like?" end%></p>
+    <br>Amount of Likes:
+    <div class="rating">
+      <%= @wallpaper.get_upvotes.size%>
+    </div>
   </div>
-</div>
-<%= link_to 'Edit', edit_wallpaper_path(@wallpaper) %>
+<%end%>
+<%= link_to 'Delete', @wallpaper, method: :delete, data: { confirm: 'Are you sure?' },class:"link" %>
+
 
 <script>
 $('.like').click(function(e) {

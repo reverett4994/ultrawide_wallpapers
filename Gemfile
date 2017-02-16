@@ -55,3 +55,5 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'bootstrap_form'

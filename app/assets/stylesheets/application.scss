@@ -20,6 +20,7 @@
     WHITE: #E9E9E9
  *
  *= require_tree .
+ *= require rails_bootstrap_forms
  *= require_self
  */
  @import "bootstrap-sprockets";
@@ -128,9 +129,10 @@ $lime: #C7F465;
 .liked{
     color: $lime !important;
     :hover{
-      color:$lime !important;
+      color:$lime  !important;
     }
 }
+
 #show_wallpaper{
   width: 95%;
   display: block;
@@ -144,11 +146,17 @@ $lime: #C7F465;
   font-weight: bold;
   text-align: center;
 }
+#wallpaper_h4{
+  font-size: 17px;
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+}
 #show_info{
   text-align: center;
   font-size: 24px;
   font-family: 'Exo 2', sans-serif;
   margin-top: 10px;
+  margin-bottom: 50px;
 }
 #rating_div{
   text-align: center;
@@ -195,3 +203,20 @@ $lime: #C7F465;
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
 /********************************************* GALLERY**************************************************/
+
+
+/********************************************* USER PAGES**************************************************/
+
+.link{
+  font-size: 30px;
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+.link:hover{
+    text-decoration: underline !important;
+  }
+
+
+/********************************************* USER PAGES**************************************************/
