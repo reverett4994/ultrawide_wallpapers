@@ -21,6 +21,7 @@
  *
  *= require_tree .
  *= require rails_bootstrap_forms
+ *= require magnific-popup
  *= require_self
  */
  @import "bootstrap-sprockets";
@@ -220,3 +221,12 @@ $lime: #C7F465;
 
 
 /********************************************* USER PAGES**************************************************/
+/*********************************************  POPUP IMAGE **************************************************/
+
+.mfp-img {
+line-height: 0;
+width: 100%;
+max-width: 100% !important;
+max-height: 100% !important;
+}
+/*********************************************  POPUP IMAGE **************************************************/
