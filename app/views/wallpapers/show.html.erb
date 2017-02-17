@@ -1,16 +1,12 @@
 <h2 id="wallpaper_title"><%= @wallpaper.title %> </h2>
 <h4 id="wallpaper_h4">submitted by <%=if @wallpaper.user !=nil then link_to @wallpaper.user.username,"/user/#{@wallpaper.user.username}"else "saMplEusER" end%></h4>
-<% if @wallpaper.image.exists?%>
-  <%= image_tag @wallpaper.image.url,id:"show_wallpaper"%>
-<%else%>
-  <%=image_tag("https://s3.amazonaws.com/ultrawidewallpapers/#{@wallpaper.picture_id}.jpg",id:'show_wallpaper')%>
-<%end%>
-  <div id="show_info">
-    <strong>Category:</strong>
-    <%= @wallpaper.cat %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <strong>Color:</strong>
-    <%= @wallpaper.color %>
-  </div>
+<%= image_tag @wallpaper.image.url,id:"show_wallpaper"%>
+<div id="show_info">
+  <strong>Tags:</strong>
+  <%= @wallpaper.tag_list%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Color:</strong>
+  <%= @wallpaper.color %>
+</div>
 <% if user_signed_in?%>
   <div id="rating_div">
     <%= link_to "javascript:void(0)", class: "like #{'liked' if current_user.voted_up_on? @wallpaper}",id:@wallpaper.id do %>

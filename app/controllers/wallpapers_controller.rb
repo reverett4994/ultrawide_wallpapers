@@ -7,8 +7,8 @@ class WallpapersController < ApplicationController
   def index
     if params[:color]
       @wallpapers=Wallpaper.where('color LIKE ?',params[:color]).paginate(:page => params[:page])
-    elsif params[:cat]
-      @wallpapers=Wallpaper.where('cat LIKE ?',params[:cat]).paginate(:page => params[:page])
+    elsif params[:tag]
+      @wallpapers=Wallpaper.tagged_with(params[:tag]).paginate(:page => params[:page])
     else
       @wallpapers = Wallpaper.all.paginate(:page => params[:page])
     end
@@ -96,6 +96,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wallpaper_params
-      params.require(:wallpaper).permit(:cat, :color, :picture_id, :title,:image)
+      params.require(:wallpaper).permit(:cat, :color, :picture_id, :title,:image,:tag_list)
     end
 end
