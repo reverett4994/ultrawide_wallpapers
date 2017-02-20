@@ -1,5 +1,3 @@
 <% if wallpaper.image.exists?%>
-  <%= link_to (image_tag wallpaper.image.url,class:'gallery_wallpaper'),wallpaper%>
-<%else%>
-  <%= link_to (image_tag("https://s3.amazonaws.com/ultrawidewallpapers/#{wallpaper.picture_id}.jpg",class:'gallery_wallpaper')),wallpaper%>
+  <%= link_to (image_tag wallpaper.image.url(:thumb),class:'gallery_wallpaper'),wallpaper%>
 <%end%>

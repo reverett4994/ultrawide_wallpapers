@@ -1,5 +1,6 @@
 Rails.application.configure do
-  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+
+  Paperclip.options[:command_path] = 'C:\WINDOWS\system32\convert.exe'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -43,7 +44,6 @@ Rails.application.configure do
   #REMOVES SECURITY FROM S3 STORAGE FOR INTERNAL TESTING
   Aws.config[:ssl_verify_peer] = false
 
-  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 
   config.paperclip_defaults = {
   storage: :s3,

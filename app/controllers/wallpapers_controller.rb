@@ -19,8 +19,6 @@ class WallpapersController < ApplicationController
   def show
     if @wallpaper.image.exists?
       gon.src= @wallpaper.image.url.to_s
-    else
-      gon.src="https://s3.amazonaws.com/ultrawidewallpapers/#{@wallpaper.picture_id}.jpg"
     end
   end
 
