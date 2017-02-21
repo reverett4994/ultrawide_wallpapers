@@ -44,9 +44,12 @@ Rails.application.configure do
   #REMOVES SECURITY FROM S3 STORAGE FOR INTERNAL TESTING
   Aws.config[:ssl_verify_peer] = false
 
-
+# http://d2hyuow9ez1qze.cloudfront.net/wallpapers/images/000/000/003/original/1.jpg
   config.paperclip_defaults = {
   storage: :s3,
+  url: ":s3_alias_url",
+  path: "/:class/:attachment/:id_partition/:style/:filename",
+  s3_host_alias: "d2hyuow9ez1qze.cloudfront.net",
   s3_credentials: {
     bucket: ENV.fetch('S3_BUCKET_NAME'),
     access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
@@ -54,4 +57,5 @@ Rails.application.configure do
     s3_region: ENV.fetch('AWS_REGION'),
     }
   }
+
 end
