@@ -1,34 +1,55 @@
-<%= form_for(@wallpaper) do |f| %>
-  <% if @wallpaper.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@wallpaper.errors.count, "error") %> prohibited this wallpaper from being saved:</h2>
+<%=session[:pic]%>
+<div class="container">
+  <%= bootstrap_form_for(@wallpaper) do |f| %>
+    <% if @wallpaper.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@wallpaper.errors.count, "error") %> prohibited this wallpaper from being saved:</h2>
 
-      <ul>
-      <% @wallpaper.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @wallpaper.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.text_field :title %>
+    <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+    <%= f.text_field :color %>
+    <%= f.hidden_field :image,class:"hidden"%>
+    <div id="dZUpload" class="dropzone">
+
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :cat %><br>
-    <%= f.text_field :cat %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :picture_id %><br>
-    <%= f.text_field :picture_id %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <%= f.file_field :image %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<script>
+  $(document).ready(function () {
+      Dropzone.autoDiscover = false;
+      $("#dZUpload").dropzone({
+          url: "/wallpaper/temp-pic",
+          dictDefaultMessage:"PUT WALLPAPER HERE!",
+          addRemoveLinks: false,
+          maxFilesize:100,
+          autoProcessQueue:true,
+          maxFiles:1,
+          maxfilesexceeded: function(file) {
+              this.removeAllFiles();
+              this.addFile(file);
+          },
+          success: function (file, response) {
+            console.log(file);
+              var imgName = response;
+              file.previewElement.classList.add("dz-success");
+              console.log("Successfully uploaded :" + imgName);
+          },
+          error: function (file, response) {
+                        console.log(file);
+              file.previewElement.classList.add("dz-error");
+              console.log(response);
+          }
+      });
+  });
+</script>

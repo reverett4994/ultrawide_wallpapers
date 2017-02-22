@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require magnific-popup
+//= require dropzone
 //= require_tree .

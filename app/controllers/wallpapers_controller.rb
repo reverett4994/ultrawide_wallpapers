@@ -1,5 +1,6 @@
 class WallpapersController < ApplicationController
   before_action :set_wallpaper, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :only => [:temp_pic]
   require 'will_paginate/array'
   WillPaginate.per_page = 12
   # GET /wallpapers
@@ -85,6 +86,15 @@ class WallpapersController < ApplicationController
     format.json { render :json => (@wallpaper.get_upvotes.size) }
   end
 end
+  def temp_pic
+    @w=Wallpaper.last
+    @w.image=params[:file]
+    @w.save
+    respond_to do |format|
+        format.html {  }
+        format.json { render json:" @wallpaper.errors, status: :unprocessable_entity "}
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
