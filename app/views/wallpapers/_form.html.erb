@@ -1,5 +1,5 @@
-<%=session[:pic]%>
-<div class="container">
+<div class="container form-div">
+  <h1>Create a New Wallpaper!</h1>
   <%= bootstrap_form_for(@wallpaper) do |f| %>
     <% if @wallpaper.errors.any? %>
       <div id="error_explanation">
@@ -12,25 +12,38 @@
         </ul>
       </div>
     <% end %>
-    <%= f.text_field :title %>
-    <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
-    <%= f.text_field :color %>
-    <%= f.hidden_field :image,class:"hidden"%>
+    <%= f.text_field :title, data: { validation: 'length',validation_length:"2-25" }  %>
+    <%= f.text_field :tag_list, value: f.object.tag_list.to_s,help:"seperate tags with a comma (ex.'nature,shepard puppy')" %>
+    <%= f.text_field :color, id:"colors",help:"optional color if picture is mostly one color", :data => {:suggestions => "blue,black,brown,grey,green,orange,purple,red,white,yellow",validation: 'custom',validation_regexp:"^blue$|^black$|^brown$|^grey$|^green$|^orange$|^purple$|^red$|^white$|^yellow$|^$" } %>
+
     <div id="dZUpload" class="dropzone">
 
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit class: "btn btn-info disabled new-wallpaper" %>
     </div>
   <% end %>
 </div>
 
 <script>
   $(document).ready(function () {
+
+    $.validate({
+      lang: 'en',
+      modules : 'security,html5',
+      onSuccess : function($form) {
+      },
+      onError : function($form) {
+        console.log("error");
+        sweetAlert("Opps!", "Something Was Wrong", "warning");
+        return false; // IF FALSE Will stop the submission of the form
+      }
+
+    });
       Dropzone.autoDiscover = false;
       $("#dZUpload").dropzone({
           url: "/wallpaper/temp-pic",
-          dictDefaultMessage:"PUT WALLPAPER HERE!",
+          dictDefaultMessage:"Drop wallpaper here or click to upload.",
           addRemoveLinks: false,
           maxFilesize:100,
           autoProcessQueue:true,
@@ -40,6 +53,7 @@
               this.addFile(file);
           },
           success: function (file, response) {
+            $(".btn").removeClass("disabled");
             console.log(file);
               var imgName = response;
               file.previewElement.classList.add("dz-success");

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217081216) do
+ActiveRecord::Schema.define(version: 20170223073438) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
@@ -54,6 +54,10 @@ ActiveRecord::Schema.define(version: 20170217081216) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "username",               limit: 255
+    t.string   "temp_pic_file_name",     limit: 255
+    t.string   "temp_pic_content_type",  limit: 255
+    t.integer  "temp_pic_file_size",     limit: 4
+    t.datetime "temp_pic_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

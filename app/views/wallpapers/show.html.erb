@@ -1,4 +1,4 @@
-<h2 id="wallpaper_title"><%= @wallpaper.title %> </h2>
+<h2 id="wallpaper_title_show"><%= @wallpaper.title %> </h2>
 <h4 id="wallpaper_h4">submitted by <%=if @wallpaper.user !=nil then link_to @wallpaper.user.username,"/user/#{@wallpaper.user.username}"else "saMplEusER" end%></h4>
 <%= image_tag @wallpaper.image.url,id:"show_wallpaper"%>
 <div id="show_info">

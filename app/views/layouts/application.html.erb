@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/css?family=Audiowide|Exo+2|Oswald" rel="stylesheet">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,16 +17,12 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Most Popular Tags
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-         <li><%= link_to 'Architecture',  wallpapers_path(:tag=>'Architecture')  %></li>
-         <li><%= link_to 'Artistic',  wallpapers_path(:tag=>'Artistic')  %></li>
-         <li><%= link_to 'Cars',  wallpapers_path(:tag=>'Cars')  %></li>
-         <li><%= link_to 'Games',  wallpapers_path(:tag=>'Games')  %></li>
-         <li><%= link_to 'Nature',  wallpapers_path(:tag=>'Nature')  %></li>
-         <li><%= link_to 'People',  wallpapers_path(:tag=>'People')  %></li>
-         <li><%= link_to 'Space',  wallpapers_path(:tag=>'Space')  %></li>
+          <% ActsAsTaggableOn::Tag.most_used(7).each do |tag|%>
+            <li><%= link_to tag,wallpapers_path(:tag=> tag.name )%></li>
+          <%end%>
         </ul>
       </li>
         <li class="dropdown">

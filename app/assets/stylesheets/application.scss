@@ -23,6 +23,7 @@
  *= require rails_bootstrap_forms
  *= require magnific-popup
  *= require dropzone/dropzone
+ *= require sweetalert
  *= require_self
  */
  @import "bootstrap-sprockets";
@@ -142,7 +143,7 @@ $lime: #C7F465;
   margin-right: auto;
   border: 1px solid black;
 }
-#wallpaper_title{
+#wallpaper_title_show{
   font-size: 50px;
   font-family: 'Exo 2', sans-serif;
   font-weight: bold;
@@ -231,3 +232,32 @@ max-width: 100% !important;
 max-height: 100% !important;
 }
 /*********************************************  POPUP IMAGE **************************************************/
+
+
+/*********************************************  DROPZONE/ NEW WALLPAPER **************************************************/
+.form-div{
+  .easy-autocomplete-container{
+    color: black !important;
+  }
+}
+
+#dZUpload{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 275px;
+  color: #646C7F;
+  font-size: 19px;
+  font-family: 'Exo 2', sans-serif;
+  border-radius: 5px;
+  border: 5px solid $blue;
+}
+
+.new-wallpaper{
+  width: 100%;
+  margin-top: 25px;
+}
+
+
+
+/*********************************************  DROPZONE/ NEW WALLPAPER **************************************************/

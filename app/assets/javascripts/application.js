@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require magnific-popup
 //= require dropzone
+//= require sweetalert
 //= require_tree .

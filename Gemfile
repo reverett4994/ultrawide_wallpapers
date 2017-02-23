@@ -64,3 +64,5 @@ gem 'magnific-popup-rails', '~> 1.1.0'
 gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'dropzonejs-rails'
+
+gem 'sweetalert-rails'
