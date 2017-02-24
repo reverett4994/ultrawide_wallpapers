@@ -66,3 +66,5 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'dropzonejs-rails'
 
 gem 'sweetalert-rails'
+
+gem 'fastimage'

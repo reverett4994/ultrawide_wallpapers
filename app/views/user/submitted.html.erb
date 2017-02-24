@@ -1,4 +1,4 @@
-<h2 id="wallpaper_title">Wallpapers Submitted by <%=@user.username%></h2>
+<h2 id="index_header">Wallpapers Submitted by <%=@user.username%></h2>
 <% @wallpapers.each do |wallpaper|%>
   <%= render 'wallpapers/gallery',wallpaper: wallpaper %>
 <%end%>

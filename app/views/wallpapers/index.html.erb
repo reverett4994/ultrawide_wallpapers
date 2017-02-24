@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Wallpapers</h1>
+<h1 id="index_header"><%=@header%> Wallpapers</h1>
 
 
 <% @wallpapers.each do |wallpaper| %>
@@ -13,4 +13,3 @@
   </div>
   <%= will_paginate @wallpapers, :container => false %>
 </div>
-<%= link_to 'New Wallpaper', new_wallpaper_path %>

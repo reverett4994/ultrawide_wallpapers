@@ -75,6 +75,9 @@ $lime: #C7F465;
   background-color: $darkgrey;
   border-bottom: 12px solid $blue;
   padding: 7px;
+  form{
+    display: inline-block;
+  }
   li a{
     color: $grey !important;
     font-family: 'Exo 2', sans-serif;
@@ -159,7 +162,7 @@ $lime: #C7F465;
   font-size: 24px;
   font-family: 'Exo 2', sans-serif;
   margin-top: 10px;
-  margin-bottom: 50px;
+
 }
 #rating_div{
   text-align: center;
@@ -167,11 +170,23 @@ $lime: #C7F465;
   font-family: 'Exo 2', sans-serif;
   margin-top: 10px;
 }
+#resolution{
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Exo 2', sans-serif;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
 /********************************************* SHOW**************************************************/
 
 
 /********************************************* GALLERY**************************************************/
-
+#index_header{
+  text-align: center;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 34px;
+  margin-top: -5px;
+}
 .gallery_wallpaper{
   width: 33.35%;
   margin-left: -.2%;
@@ -258,6 +273,8 @@ max-height: 100% !important;
   margin-top: 25px;
 }
 
-
+.jquery-form-suggestions{
+  color: black;
+}
 
 /*********************************************  DROPZONE/ NEW WALLPAPER **************************************************/

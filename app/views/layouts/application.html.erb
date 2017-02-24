@@ -25,6 +25,16 @@
           <%end%>
         </ul>
       </li>
+
+      <form action="/wallpapers" method="get" class="navbar-form">
+        <div class="form-group" style="display:inline;">
+          <div class="input-group">
+            <input class="form-control" type="text" id="tag" name="tag" placeholder="search tags">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+          </div>
+        </div>
+      </form>
+
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Colors
         <span class="caret"></span></a>
@@ -47,6 +57,9 @@
         <li><%=link_to "/user/#{current_user.username}" do%>
           <i class="glyphicon glyphicon-user"></i> <%=truncate(current_user.username, :length => 9) %>
         <%end%></li>
+        <li><%=link_to "/wallpapers/new/" do%>
+           New Wallpaper
+        <%end%></li>
           <li><%=link_to destroy_user_session_path,method: :delete do%>
             <i class="glyphicon glyphicon-log-out"></i> Logout
           <%end%></li>
@@ -54,11 +67,13 @@
           <li><%=link_to new_user_session_path do%>
             <i class="glyphicon glyphicon-log-in"></i> Login
           <%end%></li>
+          <li><%=link_to new_user_session_path do%>
+            New Wallpaper
+          <%end%></li>
         <%end%>
       </ul>
     </div>
   </nav>
-
 
 <%= yield %>
 

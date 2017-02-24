@@ -1,0 +1,42 @@
+<div class="container form-div">
+  <h1>Create a New Wallpaper!</h1>
+  <%= bootstrap_form_for(@wallpaper) do |f| %>
+    <% if @wallpaper.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@wallpaper.errors.count, "error") %> prohibited this wallpaper from being saved:</h2>
+
+        <ul>
+        <% @wallpaper.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.text_field :tag_list, value: f.object.tag_list.to_s,help:"seperate tags with a comma (ex.'nature,shepard puppy')" %>
+    <%= f.text_field :color, id:"colors",help:"optional color if picture is mostly one color", :data => {:suggestions => "blue,black,brown,grey,green,orange,purple,red,white,yellow",validation: 'custom',validation_regexp:"^blue$|^black$|^brown$|^grey$|^green$|^orange$|^purple$|^red$|^white$|^yellow$|^$" } %>
+
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-info new-wallpaper" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function () {
+
+    $.validate({
+      lang: 'en',
+      modules : 'security,html5',
+      onSuccess : function($form) {
+      },
+      onError : function($form) {
+        console.log("error");
+        sweetAlert("Opps!", "Something Was Wrong", "warning");
+        return false; // IF FALSE Will stop the submission of the form
+      }
+
+    });
+
+  });
+</script>

@@ -7,11 +7,16 @@ class WallpapersController < ApplicationController
   # GET /wallpapers.json
   def index
     if params[:color]
-      @wallpapers=Wallpaper.where('color LIKE ?',params[:color]).paginate(:page => params[:page])
+      @header=params[:color]
+      @wallpapers=Wallpaper.where('color LIKE ?',params[:color]).reverse_order.paginate(:page => params[:page])
     elsif params[:tag]
-      @wallpapers=Wallpaper.tagged_with(params[:tag]).paginate(:page => params[:page])
+      @header=params[:tag]
+      @wallpapers=[]
+      @tags=params[:tag].split(",")
+      @wallpapers=Wallpaper.tagged_with([params[:tag]],parse: true, :match_all => false, :any => true).reverse_order.paginate(:page => params[:page])
     else
-      @wallpapers = Wallpaper.all.paginate(:page => params[:page])
+      @header="Newiest"
+      @wallpapers = Wallpaper.all.reverse_order.paginate(:page => params[:page])
     end
   end
 
@@ -20,6 +25,7 @@ class WallpapersController < ApplicationController
   def show
     if @wallpaper.image.exists?
       gon.src= @wallpaper.image.url.to_s
+      @size=FastImage.size(@wallpaper.image.url)
     end
   end
 
