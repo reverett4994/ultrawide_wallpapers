@@ -1,0 +1,7 @@
+<%@tags.each do |tag|%>
+  <div class="tag_listing">
+    <%@wallpaper=Wallpaper.tagged_with(tag.name).limit(1)%>
+    <%= image_tag @wallpaper[0].image.url(:thumb),class:"tags_pics"%>
+    <br><%=link_to tag.name,wallpapers_path(:tag=> tag.name )%> (<%=(tag.taggings_count)%>)
+  </div>
+<%end%>

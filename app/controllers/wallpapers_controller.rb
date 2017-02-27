@@ -38,6 +38,14 @@ class WallpapersController < ApplicationController
   def edit
   end
 
+  def add_tags
+    @new_tags=params[:tags]
+    @id=params[:id]
+    @wallpaper=Wallpaper.find(@id)
+    @wallpaper.tag_list.add(@new_tags,parse: true)
+    @wallpaper.save
+  end
+
   # POST /wallpapers
   # POST /wallpapers.json
   def create
@@ -101,6 +109,10 @@ end
         format.html {  }
         format.json { render json:" @wallpaper.errors, status: :unprocessable_entity "}
     end
+  end
+
+  def show_tags
+    @tags=ActsAsTaggableOn::Tag.most_used(10000)
   end
 
   private

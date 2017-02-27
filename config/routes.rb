@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       get 'user/:username' => 'user#show'
       get 'user/:username/submitted' => 'user#submitted'
       post 'wallpaper/temp-pic'=>'wallpapers#temp_pic'
+      get 'wallpaper/show-tags'=>'wallpapers#show_tags'
+      get 'wallpaper/add-tags'=>'wallpapers#add_tags'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

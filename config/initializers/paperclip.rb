@@ -7,3 +7,4 @@ module Paperclip
     end
   end
 end
+ActsAsTaggableOn.remove_unused_tags = true

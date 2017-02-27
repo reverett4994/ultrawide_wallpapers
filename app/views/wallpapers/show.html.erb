@@ -21,12 +21,29 @@
       <%= @wallpaper.get_upvotes.size%>
     </div>
   </div>
+<%else%>
+  <div id="rating_div">
+    Amount of Likes:
+    <div class="rating">
+      <%= @wallpaper.get_upvotes.size%>
+    </div>
+  </div>
 <%end%>
 <% if current_user == @wallpaper.user%>
   <%= link_to 'Delete', @wallpaper, method: :delete, data: { confirm: 'Are you sure?' },class:"link" %>
   <%= link_to 'Edit',edit_wallpaper_path(@wallpaper),class:"link" %>
-
+<%else%>
+  <h4 id="wallpaper_h4">add more tags!</h4>
+  <%= form_tag wallpaper_add_tags_path, method: :get,class:"add_tags_form" do %>
+      <%= hidden_field_tag 'id', @wallpaper.id%>
+      <%=text_field_tag 'tags',"",placeholder:"seperate with a comma (ex.'nature,shepard puppy')"%><br>
+      <%=submit_tag "add tags"%>
+  <%end%>
 <%end%>
+
+
+
+
 <script>
 $('.like').click(function(e) {
   console.log("CLICKED");
