@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-    root 'wallpapers#index'
+    root 'wallpapers#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       post 'wallpaper/temp-pic'=>'wallpapers#temp_pic'
       get 'wallpaper/show-tags'=>'wallpapers#show_tags'
       get 'wallpaper/add-tags'=>'wallpapers#add_tags'
+      get 'home'=>'wallpapers#home'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

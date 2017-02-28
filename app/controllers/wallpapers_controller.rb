@@ -44,6 +44,7 @@ class WallpapersController < ApplicationController
     @wallpaper=Wallpaper.find(@id)
     @wallpaper.tag_list.add(@new_tags,parse: true)
     @wallpaper.save
+    redirect_to :back
   end
 
   # POST /wallpapers
@@ -112,7 +113,11 @@ end
   end
 
   def show_tags
-    @tags=ActsAsTaggableOn::Tag.most_used(10000)
+    @tags=ActsAsTaggableOn::Tag.most_used(10000).paginate(:page => params[:page])
+  end
+
+  def home
+
   end
 
   private

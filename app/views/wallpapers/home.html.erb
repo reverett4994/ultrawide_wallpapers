@@ -1,0 +1,30 @@
+<h1>Browse Wallpapers by color or tags with all being 21:9 designed for ultrawide displays!</h1>
+<%= link_to "See Newiest Wallpapers",wallpapers_path%>
+<div class="owl-carousel">
+  <div> <div class="owl_text">BLACK</div><%= link_to (image_tag("black.jpg", alt: "Example Image")),wallpapers_path(:color=>'black')%></div>
+  <div> <div class="owl_text">BLUE</div><%= link_to (image_tag("blue.jpg", alt: "Example Image")),wallpapers_path(:color=>'blue')%></div>
+  <div> <div class="owl_text">BROWN</div><%= link_to (image_tag("brown.jpg", alt: "Example Image")),wallpapers_path(:color=>'brown')%></div>
+  <div> <div class="owl_text">GREEN</div><%= link_to (image_tag("green.jpg", alt: "Example Image")),wallpapers_path(:color=>'green')%></div>
+  <div> <div class="owl_text">GREY</div><%= link_to (image_tag("grey.jpg", alt: "Example Image")),wallpapers_path(:color=>'grey')%></div>
+  <div> <div class="owl_text">ORANGE</div><%= link_to (image_tag("orange.jpg", alt: "Example Image")),wallpapers_path(:color=>'orange')%></div>
+  <div> <div class="owl_text">PURPLE</div><%= link_to (image_tag("purple.jpg", alt: "Example Image")),wallpapers_path(:color=>'purple')%></div>
+  <div> <div class="owl_text">RED</div><%= link_to (image_tag("red.jpg", alt: "Example Image")),wallpapers_path(:color=>'red')%></div>
+  <div> <div class="owl_text">WHITE</div><%= link_to (image_tag("white.png", alt: "Example Image")),wallpapers_path(:color=>'white')%></div>
+  <div> <div class="owl_text">YELLOW</div><%= link_to (image_tag("yellow.jpg", alt: "Example Image")),wallpapers_path(:color=>'yellow')%></div>
+
+</div>
+<script>
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        1000:{
+            items:2
+        }
+    }
+})
+</script>

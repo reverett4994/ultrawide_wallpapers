@@ -68,3 +68,5 @@ gem 'dropzonejs-rails'
 gem 'sweetalert-rails'
 
 gem 'fastimage'
+
+gem 'owlcarousel-rails'

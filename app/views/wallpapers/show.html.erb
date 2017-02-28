@@ -31,12 +31,13 @@
 <%end%>
 <% if current_user == @wallpaper.user%>
   <%= link_to 'Delete', @wallpaper, method: :delete, data: { confirm: 'Are you sure?' },class:"link" %>
-  <%= link_to 'Edit',edit_wallpaper_path(@wallpaper),class:"link" %>
+  <%= link_to 'Edit Your Wallpaper',edit_wallpaper_path(@wallpaper),class:"link" %>
 <%else%>
-  <h4 id="wallpaper_h4">add more tags!</h4>
+  <h4 id="tags_h4">add more tags!</h4>
   <%= form_tag wallpaper_add_tags_path, method: :get,class:"add_tags_form" do %>
       <%= hidden_field_tag 'id', @wallpaper.id%>
-      <%=text_field_tag 'tags',"",placeholder:"seperate with a comma (ex.'nature,shepard puppy')"%><br>
+      <%=text_field_tag 'tags',"",placeholder:"ex.'nature,shepard puppy'"%><br>
+      <span class="help-block">seperate tags with a comma (ex.'nature,shepard puppy,doggie')</span>
       <%=submit_tag "add tags"%>
   <%end%>
 <%end%>
@@ -94,5 +95,22 @@ $('#show_wallpaper').magnificPopup({
       return $('#show_wallpaper');
     }
   }
+});
+
+$(document).ready(function () {
+
+  $.validate({
+    lang: 'en',
+    modules : 'security,html5',
+    onSuccess : function($form) {
+    },
+    onError : function($form) {
+      console.log("error");
+      sweetAlert("Opps!", "Something Was Wrong", "warning");
+      return false; // IF FALSE Will stop the submission of the form
+    }
+
+  });
+
 });
 </script>

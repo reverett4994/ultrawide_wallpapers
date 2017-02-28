@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require magnific-popup
 //= require dropzone
+//= require owl.carousel
 //= require sweetalert
 //= require_tree .

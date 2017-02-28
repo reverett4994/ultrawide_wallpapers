@@ -111,6 +111,8 @@ GEM
     nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    owlcarousel-rails (1.1.3.3)
+      jquery-rails
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -208,6 +210,7 @@ DEPENDENCIES
   jquery-rails
   magnific-popup-rails (~> 1.1.0)
   mysql2 (>= 0.3.13, < 0.5)
+  owlcarousel-rails
   paperclip (~> 5.0.0)
   rails (= 4.2.5)
   sass-rails (~> 5.0)

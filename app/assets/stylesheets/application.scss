@@ -24,6 +24,7 @@
  *= require magnific-popup
  *= require dropzone/dropzone
  *= require sweetalert
+
  *= require_self
  */
  @import "bootstrap-sprockets";
@@ -205,6 +206,13 @@ $lime: #C7F465;
     margin-bottom: 10px;
   }
 }
+
+#tags_h4{
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Exo 2', sans-serif;
+  margin-bottom: 25px;
+}
 /********************************************* SHOW**************************************************/
 
 
@@ -322,5 +330,35 @@ max-height: 100% !important;
   width: 100%;
 }
 
+#tags_containter{
+  overflow: hidden;
+}
 
 /********************************************* TAGS LISTING**************************************************/
+
+
+
+/********************************************* HOME **************************************************/
+
+
+.owl-carousel{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.owl_text{
+  position: absolute;
+  z-index: 1;
+  color: $grey !important;
+  font-size: 60px;
+  font-family: 'Audiowide', cursive;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  -webkit-text-stroke: 1.0px black;
+}
+
+
+/********************************************* HOME **************************************************/

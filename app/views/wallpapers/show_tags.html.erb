@@ -1,3 +1,4 @@
+<div id="tags_containter">
 <%@tags.each do |tag|%>
   <div class="tag_listing">
     <%@wallpaper=Wallpaper.tagged_with(tag.name).limit(1)%>
@@ -5,3 +6,10 @@
     <br><%=link_to tag.name,wallpapers_path(:tag=> tag.name )%> (<%=(tag.taggings_count)%>)
   </div>
 <%end%>
+</div>
+<div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @tags %>
+  </div>
+  <%= will_paginate @tags, :container => false %>
+</div>
