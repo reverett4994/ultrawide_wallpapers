@@ -121,6 +121,23 @@ $lime: #C7F465;
 .inline{
   display: inline-block;
 }
+
+@media only screen and (max-width: 1500px) {
+    .navbar-right {
+      display: block;
+      float: left !important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    #header_title {
+      font-size: 25px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    #header_title {
+      font-size: 20px;
+    }
+}
 /********************************************* HEADER**************************************************/
 
 
@@ -227,9 +244,22 @@ $lime: #C7F465;
 .gallery_wallpaper{
   width: 33.35%;
   margin-left: -.2%;
-
 }
-
+@media only screen and (max-width: 1445px) {
+    .gallery_wallpaper {
+        width: 33%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .gallery_wallpaper {
+        width: 49%;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .gallery_wallpaper {
+        width: 100%;
+    }
+}
 .apple_pagination {
   background: $blue;
   text-align: center;
@@ -334,7 +364,16 @@ max-height: 100% !important;
 #tags_containter{
   overflow: hidden;
 }
-
+@media only screen and (max-width: 900px) {
+    .tag_listing {
+        width: 49%;
+    }
+}
+@media only screen and (max-width: 750px) {
+    .tag_listing {
+        width: 100%;
+    }
+}
 /********************************************* TAGS LISTING**************************************************/
 
 
@@ -354,10 +393,12 @@ max-height: 100% !important;
 }
 #home_h1{
   text-align: center;
+  font-size: 45px;
   font-weight: bold;
   font-family: 'Exo 2', sans-serif;
   letter-spacing: 2px;
   line-height: 140%;
+  margin-bottom: 20px;
   margin-top: 0;
   -webkit-text-stroke: .8px #999;
 }
@@ -368,7 +409,7 @@ max-height: 100% !important;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Exo 2', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   text-decoration: underline !important;
   -webkit-text-stroke: .3px #999;
 }
@@ -393,7 +434,7 @@ max-height: 100% !important;
 }
 
 .parallax {
-  padding: 80px 30px 0 30px;
+  padding: 80px 0px 0 0px;
     /* The image used */
     background-image: url("background2.jpg");
 
@@ -407,6 +448,63 @@ max-height: 100% !important;
     background-size: cover;
 }
 #long{
-  height: 500px;
+  height: 400px;
+}
+.half{
+  text-align: center;
+  width: 49%;
+  display: inline-block;
+  padding: 80px 30px 0 30px;
+    /* The image used */
+    background-image: url("background2.jpg");
+
+    /* Set a specific height */
+    height: 400px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    a{
+      color: $grey !important;
+      font-size: 60px;
+      font-family: 'Audiowide', cursive;
+      left: 0;
+      top: 30%;
+      width: 100%;
+      text-align: center;
+      -webkit-text-stroke: 1.0px black;
+      display: table-cell; height: 300px; vertical-align: middle;width:30%;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .half {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .half a{
+        font-size: 40px;
+    }
+}
+
+.one{
+  background-image: url("nature.jpg");
+}
+.two{
+  background-image: url("artistic.jpg");
+}
+.three{
+  background-image: url("water.jpg");
+}
+.four{
+  background-image: url("animal.jpg");
+}
+.five{
+  background-image: url("cars.jpg");
+}
+.six{
+  background-image: url("architecture.jpg");
 }
 /********************************************* HOME **************************************************/

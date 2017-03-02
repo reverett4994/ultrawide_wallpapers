@@ -9,3 +9,4 @@
   <%= will_paginate @wallpapers, :container => false %>
 </div>
 <%=link_to "#{@user.username}'s Submitted Wallpapers","/user/#{@user.username}/submitted",class:"link"%>
+<%= link_to "edit your account",edit_user_registration_path,class:"link" if current_user == @user %>

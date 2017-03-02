@@ -19,8 +19,14 @@
     <div> <div class="owl_text">YELLOW</div><%= link_to (image_tag("yellow.jpg", alt: "Example Image")),wallpapers_path(:color=>'yellow')%></div>
   </div>
 </div>
-<h1 id="home_h1">See Most Used Tags!</h1>
-
+<h1 id="home_h1">The Most Used Tags!</h1>
+<div class='half one'><%= link_to "NATURE",wallpapers_path(:tag=>"NATURE")%></div>
+<div class='half two'><%= link_to "ARTISTIC",wallpapers_path(:tag=>"Artistic")%></div>
+<div class='half three'><%= link_to "WATER",wallpapers_path(:tag=>"WATER")%></div>
+<div class='half four'><%= link_to "ANIMAL",wallpapers_path(:tag=>"ANIMAL")%></div>
+<div class='half five'><%= link_to "CARS",wallpapers_path(:tag=>"CARS")%></div>
+<div class='half six'><%= link_to "ARCHITECTURE",wallpapers_path(:tag=>"Architecture")%></div>
+<h1 id="home_h1"><%= link_to "See All Tags!", wallpaper_show_tags_path ,id:"home_h1"%></h1>
 <div id="long"></div>
 <script>
 $('.owl-carousel').owlCarousel({

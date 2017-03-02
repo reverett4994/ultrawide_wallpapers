@@ -1,6 +1,7 @@
 class WallpapersController < ApplicationController
   before_action :set_wallpaper, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, :only => [:temp_pic]
+  before_action :authenticate_user!, only: [:new,:edit], notice: 'Sign in First Please'
   require 'will_paginate/array'
   WillPaginate.per_page = 15
   # GET /wallpapers
@@ -36,6 +37,10 @@ class WallpapersController < ApplicationController
 
   # GET /wallpapers/1/edit
   def edit
+    if current_user != @wallpaper.user
+      flash[:error]= 'Thats Not Yours!!'
+      redirect_to root_path
+    end
   end
 
   def add_tags

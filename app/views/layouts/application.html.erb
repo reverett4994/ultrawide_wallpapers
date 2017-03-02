@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Widewallpapers2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= Gon::Base.render_data %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -50,6 +51,7 @@
           <li><%= link_to 'Yellow',  wallpapers_path(:color=>'yellow')  %></li>
         </ul>
       </li>
+      <li><%= link_to "show all tags", wallpaper_show_tags_path ,id:"header_tags_link"%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <%if user_signed_in?%>
@@ -66,17 +68,20 @@
           <li><%=link_to new_user_session_path do%>
             <i class="glyphicon glyphicon-log-in"></i> Login
           <%end%></li>
-          <li><%=link_to new_user_session_path do%>
-            New Wallpaper
+          <li><%=link_to "/wallpapers/new/" do%>
+             New Wallpaper
           <%end%></li>
         <%end%>
       </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "show all tags", wallpaper_show_tags_path ,id:"header_tags_link"%></li>
-      </ul>
+
     </div>
   </nav>
-
+<% flash.each do |key, value| %>
+  <div class="<%= flash_class(key) %>">
+    <%= value %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  </div>
+<% end %>
 <%= yield %>
 
 </body>
