@@ -14,7 +14,15 @@ class WallpapersController < ApplicationController
       @header=params[:tag]
       @wallpapers=[]
       @tags=params[:tag].split(",")
-      @wallpapers=Wallpaper.tagged_with([params[:tag]],parse: true, :match_all => false, :any => true).reverse_order.paginate(:page => params[:page])
+      if params[:tag].end_with? 's'
+        @s_wallpapers=Wallpaper.tagged_with([params[:tag].chomp("s")],parse: true, :match_all => false, :any => true).reverse_order
+      else
+        @s_wallpapers=Wallpaper.tagged_with([params[:tag]+"s"],parse: true, :match_all => false, :any => true).reverse_order
+      end
+
+      @non_s_wallpapers=Wallpaper.tagged_with([params[:tag]],parse: true, :match_all => false, :any => true).reverse_order.paginate(:page => params[:page])
+      @wallpapers=(@non_s_wallpapers+@s_wallpapers).paginate(:page => params[:page])
+
     else
       @header="Newiest"
       @wallpapers = Wallpaper.all.reverse_order.paginate(:page => params[:page])

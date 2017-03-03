@@ -70,3 +70,7 @@ gem 'sweetalert-rails'
 gem 'fastimage'
 
 gem 'owlcarousel-rails'
+
+
+
+gem 'rails_12factor', group: :production
