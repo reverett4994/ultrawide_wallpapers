@@ -86,6 +86,9 @@ s3_credentials: {
   s3_region: ENV.fetch('AWS_REGION'),
     }
   }
+
+  config.serve_static_assets = true
+  config.assets.compile = true
   #FOUND ON DEVISE PAGE TO USE WITH HEROKU
   config.assets.initialize_on_precompile = false
 end
