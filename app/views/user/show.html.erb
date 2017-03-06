@@ -1,3 +1,4 @@
+<% @title= "#{@user.username}'s Liked Wallpapers" %>
 <h2 id="index_header">Wallpapers Liked by <%=@user.username%></h2>
 <% @wallpapers.each do |wallpaper|%>
   <%= render 'wallpapers/gallery',wallpaper: wallpaper %>

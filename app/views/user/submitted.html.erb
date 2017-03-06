@@ -1,3 +1,4 @@
+<% @title= "#{@user.username}'s Submitted Wallpapers" %>
 <h2 id="index_header">Wallpapers Submitted by <%=@user.username%></h2>
 <% @wallpapers.each do |wallpaper|%>
   <%= render 'wallpapers/gallery',wallpaper: wallpaper %>
