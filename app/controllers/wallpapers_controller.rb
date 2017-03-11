@@ -19,8 +19,7 @@ class WallpapersController < ApplicationController
       else
         @s_wallpapers=Wallpaper.tagged_with([params[:tag]+"s"],parse: true, :match_all => false, :any => true).reverse_order
       end
-
-      @non_s_wallpapers=Wallpaper.tagged_with([params[:tag]],parse: true, :match_all => false, :any => true).reverse_order.paginate(:page => params[:page])
+      @non_s_wallpapers=Wallpaper.tagged_with([params[:tag]],parse: true, :match_all => false, :any => true).reverse_order
       @wallpapers=(@non_s_wallpapers+@s_wallpapers).paginate(:page => params[:page])
 
     else
