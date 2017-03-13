@@ -1,12 +1,18 @@
-<meta name="description" content="A Site to Find UltraWide 3440x1440,2560x1080 21:9 Wallpapers. Also Sort by Color or by Diffrent Tags!">
-<h2 id="wallpaper_title_show"><%= @wallpaper.title %> </h2>
+<meta name="description" content="A Site to Find UltraWide 3440x1440,2560x1080 21:9 Wallpapers. Also Sort by Color or by Diffrent Tags! All images are HD and 21:9 aspect ratio.">
+<h2 id="wallpaper_title_show"><%= @wallpaper.title %> Ultrawide Wallpaper</h2>
 <h4 id="wallpaper_h4">submitted by <%=link_to @wallpaper.user.username,"/user/#{@wallpaper.user.username}"%></h4>
-<%= image_tag @wallpaper.image.url,id:"show_wallpaper"%>
-<div id="show_info">
-  <strong>Tags:</strong>
-  <%= @wallpaper.tag_list%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= image_tag @wallpaper.image.url,id:"show_wallpaper",alt:"#{@wallpaper.title} Ultrawide Wallpaper"%>
+<div id="show_tags">
+  <strong>&nbsp;&nbsp;Tags:</strong><br>
+  <ul>
+  <% @wallpaper.tag_list.each do |tag|%>
+    <li><%=link_to tag,wallpapers_path(:tag=> tag )%></li>
+  <%end%>
+  </ul>
+</div>
+<div id="show_color">
   <strong>Color:</strong>
-  <%= @wallpaper.color %>
+  <%= if @wallpaper.color == "" then "???" else link_to @wallpaper.color, wallpapers_path(:color=>@wallpaper.color),id:"color_link" end %>
 </div>
 <div id="resolution">
   Resolution:<br><%=@size[0]%>x<%=@size[1]%>
