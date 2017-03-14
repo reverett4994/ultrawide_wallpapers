@@ -131,6 +131,9 @@ end
   def home
 
   end
+  def guide
+
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
