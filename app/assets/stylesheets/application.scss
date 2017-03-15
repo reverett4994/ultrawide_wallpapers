@@ -423,11 +423,22 @@ max-height: 100% !important;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Exo 2', sans-serif;
-  font-size: 24px;
+  font-size: 30px;
   text-decoration: underline !important;
   -webkit-text-stroke: .3px #999;
 }
-
+.home_link_2{
+  color: white !important;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 35px;
+  text-decoration: underline !important;
+  -webkit-text-stroke: .3px black;
+  margin-top: 30px;
+}
 .owl-carousel{
   margin-top: 50px;
   margin-left: auto;
@@ -523,12 +534,55 @@ max-height: 100% !important;
 }
 /********************************************* HOME **************************************************/
 
+/*font-family: 'Audiowide', cursive;
 
+/*font-family: 'Oswald', sans-serif;
+
+/*font-family: 'Exo 2', sans-serif;
 /********************************************* GUIDE **************************************************/
 
 .guide{
+  h1{
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'Audiowide', cursive;
+    text-decoration: underline;
+    -moz-text-decoration-color: $lime; /* Code for Firefox */
+    text-decoration-color: $lime;
+  }
   p{
-    font-size: 20px;
+    font-size: 21px;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1.5px;
+    line-height: 150%;
+    text-indent: 50px;
+  }
+  li{
+    font-size: 21px;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: 1.5px;
+    line-height: 150%;
+  }
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+    margin-top: 35px;
+  }
+  a{
+    color: $lime !important;
+    text-decoration: underline;
+  }
+  figcaption{
+    text-align: center;
+    margin-bottom: 35px;
+  }
+  iframe{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
   }
 }
 
