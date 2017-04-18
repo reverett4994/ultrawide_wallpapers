@@ -132,7 +132,10 @@ end
 
   end
   def guide
-
+  end
+  def file1
+  end
+  def file2
   end
 
   private

@@ -85,6 +85,7 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
+    high_voltage (3.0.0)
     i18n (0.8.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -211,6 +212,7 @@ DEPENDENCIES
   dropzonejs-rails
   fastimage
   gon
+  high_voltage (~> 3.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   magnific-popup-rails (~> 1.1.0)

@@ -71,6 +71,6 @@ gem 'fastimage'
 
 gem 'owlcarousel-rails'
 
-
+gem 'high_voltage', '~> 3.0.0'
 
 gem 'rails_12factor', group: :production
