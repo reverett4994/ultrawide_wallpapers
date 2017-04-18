@@ -18,8 +18,8 @@ Rails.application.routes.draw do
       get 'wallpaper/add-tags'=>'wallpapers#add_tags'
       get 'home'=>'wallpapers#home'
       get 'buying-guide'=>'wallpapers#guide'
-      get '.well-known/acme-challenge/3CAccpt4rWoKajFw0Ye82E9DC5sSju4WZW0f-V96BUg'=>'wallpapers#file1'
-      get '.well-known/acme-challenge/Pa4vlfz9S3QjW6sHqLdaGntx7jAK-UsycPpl161T0W8'=>'wallpapers#file2'
+      get '.well-known/acme-challenge/kpB2nJjAtlD7zc6VDsP093JPQUwL4xlgjxI3wsoLWsA'=>'wallpapers#file1'
+      get '.well-known/acme-challenge/9j1ELK2VRcbG0FaGzG2V3412xFXjqT8pF23AR8F6sHY'=>'wallpapers#file2'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
