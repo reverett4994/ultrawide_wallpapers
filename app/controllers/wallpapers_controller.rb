@@ -31,7 +31,7 @@ class WallpapersController < ApplicationController
   # GET /wallpapers/1
   # GET /wallpapers/1.json
   def show
-    if @wallpaper.image.exists?
+    if @wallpaper.image.exists? == false
       gon.src= @wallpaper.image.url.to_s
       @size=FastImage.size(@wallpaper.image.url)
     end

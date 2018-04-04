@@ -1,3 +1,4 @@
-<% if wallpaper.image.exists?%>
+
+<% if wallpaper.image.exists? == false%>
   <%= link_to (image_tag wallpaper.image.url(:thumb),class:'gallery_wallpaper',alt:"#{wallpaper.title} Ultrawide Wallpaper"),wallpaper%>
 <%end%>
